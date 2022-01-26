@@ -14,6 +14,7 @@ public class MyCharacterController : MonoBehaviour
     [SerializeField] private float JumpFalloff = 0.06f;
     [SerializeField] private float JumpHang = 0.02f;
     [SerializeField] private int CoyoteFrames = 2;
+    [SerializeField] private bool _3D = true;
 
     private CharacterController ctrl;
     private bool grounded;
@@ -44,8 +45,6 @@ public class MyCharacterController : MonoBehaviour
         {
             jumping = false;
         }
-
-
     }
 
     // Do physics
@@ -77,7 +76,10 @@ public class MyCharacterController : MonoBehaviour
         playerVelocity.x = Input.GetAxis("Horizontal") * moveSpeed;
 
         //if in 3D, do forward movement
-        //TODO
+        if (_3D)
+        {
+            playerVelocity.z = Input.GetAxis("Vertical") * moveSpeed;
+        }
 
         // do calculated movement
         ctrl.Move(gameObject.transform.rotation * playerVelocity);

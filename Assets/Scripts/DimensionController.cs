@@ -9,7 +9,7 @@ public class DimensionController : MonoBehaviour
     [SerializeField] private GameObject CombinedAvatar;
     [SerializeField] private GameObject LightAvatar;
     [SerializeField] private GameObject DarkAvatar;
-    [SerializeField] private bool StartSplit = false;
+    [SerializeField] public bool StartSplit { get; private set; } = false;
 
     public bool split { get; private set; }
 

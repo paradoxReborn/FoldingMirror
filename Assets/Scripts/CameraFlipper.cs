@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraFlipper : MonoBehaviour
 {
     [SerializeField] DimensionController DC;
-    [SerializeField] Vector3 SplitViewPosition;
-    [SerializeField] Vector3 SplitViewRotation;
+    [SerializeField] Vector3 _2DViewPosition;
+    [SerializeField] Vector3 _2DViewRotation;
     [SerializeField] Vector3 _3DViewPosition;
     [SerializeField] Vector3 _3DViewRotation;
 
@@ -18,8 +18,12 @@ public class CameraFlipper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SplitViewQrt = Quaternion.Euler(SplitViewRotation);
+        SplitViewQrt = Quaternion.Euler(_2DViewRotation);
         CombinedViewQrt = Quaternion.Euler(_3DViewRotation);
+
+        //Initial camera positioning
+        if (DC.StartSplit) Show2DView();
+        else Show3DView();
     }
 
     // Update is called once per frame
@@ -29,17 +33,26 @@ public class CameraFlipper : MonoBehaviour
         {
             if (split) //switch to combined view
             {
-                transform.position = _3DViewPosition;
-                transform.rotation = CombinedViewQrt;
+                Show3DView();
                 split = false;
             }
             else //switch to split view
             {
-                transform.position = SplitViewPosition;
-                transform.rotation = SplitViewQrt;
+                Show2DView();
                 split = true;
             }
         }
     }
 
+    private void Show3DView()
+    {
+        transform.position = _3DViewPosition;
+        transform.rotation = CombinedViewQrt;
+    }
+
+    private void Show2DView()
+    {
+        transform.position = _2DViewPosition;
+        transform.rotation = SplitViewQrt;
+    }
 }

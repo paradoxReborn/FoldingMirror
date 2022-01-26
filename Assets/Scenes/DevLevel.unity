@@ -1043,8 +1043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DC: {fileID: 1913264109}
-  SplitViewPosition: {x: 0, y: 0, z: -10}
-  SplitViewRotation: {x: 0, y: 0, z: 0}
+  _2DViewPosition: {x: 0, y: 0, z: -10}
+  _2DViewRotation: {x: 0, y: 0, z: 0}
   _3DViewPosition: {x: 0, y: 10, z: -10}
   _3DViewRotation: {x: 30, y: 15, z: 0}
 --- !u!1 &1657633833
@@ -1190,7 +1190,6 @@ MonoBehaviour:
   CombinedAvatar: {fileID: 425135136}
   LightAvatar: {fileID: 1108159486}
   DarkAvatar: {fileID: 2021458209}
-  StartSplit: 0
 --- !u!1 &1970834755
 GameObject:
   m_ObjectHideFlags: 0
