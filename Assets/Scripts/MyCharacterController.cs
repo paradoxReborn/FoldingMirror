@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Each of the character's avatars contains a MyCharacterController.
+// The doppelganger is placed upside-down, and thus behaves as a mirror image.
+
 public class MyCharacterController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 0.3f;
@@ -77,13 +80,13 @@ public class MyCharacterController : MonoBehaviour
         //TODO
 
         // do calculated movement
-        ctrl.Move(playerVelocity);
+        ctrl.Move(gameObject.transform.rotation * playerVelocity);
     }
 
     // Replacement for unreliable or non-working CharacterController collision detection
     private bool Grounded()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, groundedRadius)) return true;
+        if (Physics.Raycast(transform.position, gameObject.transform.rotation * Vector3.down, groundedRadius)) return true;
         return false;
     }
 }
