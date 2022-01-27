@@ -15,6 +15,10 @@ public class FlippableObstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(DC == null)
+        {
+            DC = GameObject.Find("DimensionController").GetComponent<DimensionController>(); //In case someone forgets to assign this.
+        }
         boxCollider = gameObject.GetComponent<BoxCollider>();
         originalSize = boxCollider.size;
         if (DC.StartSplit)
