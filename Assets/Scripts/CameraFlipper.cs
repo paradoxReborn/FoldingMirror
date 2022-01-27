@@ -19,8 +19,8 @@ public class CameraFlipper : MonoBehaviour
     private Quaternion targetRotation;
     private Vector3 targetPosition;
 
-    private Vector3 smoothVelocity = Vector3.zero;
-    private bool split;
+    //private Vector3 smoothVelocity = Vector3.zero;
+    public bool split { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -33,19 +33,19 @@ public class CameraFlipper : MonoBehaviour
         //Initial camera positioning
         if (DC.StartSplit)
         {
-            targetPosition = _2DViewPosition;
-            targetRotation = SplitViewQrt;
+            Transition2D();
         }
         else
         {
-            targetPosition = _3DViewPosition;
-            targetRotation = CombinedViewQrt;
+            Transition3D();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Control moved to DimensionController
+        /*
         if(split != DC.split)
         {
             if (split) //switch to combined view
@@ -63,19 +63,28 @@ public class CameraFlipper : MonoBehaviour
                 split = true;
             }
         }
+        */
 
         //Follow target camera location smoothly
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothRotationSpeed);
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, smoothTranslationSpeed);
     }
-
-    /*
-    IEnumerator Transition2D()
+    
+    public void Transition3D()
     {
-
-        yield return null;
+        targetPosition = _3DViewPosition;
+        targetRotation = CombinedViewQrt;
+        split = false;
     }
 
+    public void Transition2D()
+    {
+        targetPosition = _2DViewPosition;
+        targetRotation = SplitViewQrt;
+        split = true;
+    }
+
+    /*
     private void Show3DView()
     {
         transform.position = _3DViewPosition;

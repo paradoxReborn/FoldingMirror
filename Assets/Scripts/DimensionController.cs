@@ -10,16 +10,20 @@ public class DimensionController : MonoBehaviour
     [SerializeField] private GameObject LightAvatar;
     [SerializeField] private GameObject DarkAvatar;
     [SerializeField] private GameObject PivotObject;
+    [SerializeField] private GameObject CameraController;
     [SerializeField] public bool StartSplit { get; private set; } = false;
 
     public bool split { get; private set; }
 
-    private SwingingEnvironment MirrorLevel;
+    private SwingingEnvironment Mirror;
+    private CameraFlipper CamCtrl;
 
     // Start is called before the first frame update
     void Start()
     {
-        MirrorLevel = PivotObject.GetComponent<SwingingEnvironment>();
+        Mirror = PivotObject.GetComponent<SwingingEnvironment>();
+        CamCtrl = CameraController.GetComponent<CameraFlipper>();
+        // TODO: Ensure mirror and camera are in correct state, or remove support for starting split.
 
         split = StartSplit;
         //Ensure light/dark/combined avatars start in the right dimension
@@ -43,7 +47,8 @@ public class DimensionController : MonoBehaviour
     {
         split = true;
 
-        MirrorLevel.Unfold();
+        Mirror.Unfold();
+        CamCtrl.Transition2D();
 
         LightAvatar.transform.position = CombinedAvatar.transform.position;
         DarkAvatar.transform.position = new Vector3(
@@ -60,7 +65,8 @@ public class DimensionController : MonoBehaviour
     {
         split = false;
 
-        MirrorLevel.Fold();
+        Mirror.Fold();
+        CamCtrl.Transition3D();
 
         CombinedAvatar.transform.position = LightAvatar.transform.position;
         CombinedAvatar.SetActive(true);

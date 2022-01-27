@@ -1510,6 +1510,7 @@ MonoBehaviour:
   LightAvatar: {fileID: 1108159486}
   DarkAvatar: {fileID: 2021458209}
   PivotObject: {fileID: 420428465}
+  CameraController: {fileID: 1579016150}
 --- !u!1 &1970834755
 GameObject:
   m_ObjectHideFlags: 0
