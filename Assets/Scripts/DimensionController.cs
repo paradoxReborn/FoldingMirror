@@ -9,13 +9,18 @@ public class DimensionController : MonoBehaviour
     [SerializeField] private GameObject CombinedAvatar;
     [SerializeField] private GameObject LightAvatar;
     [SerializeField] private GameObject DarkAvatar;
+    [SerializeField] private GameObject PivotObject;
     [SerializeField] public bool StartSplit { get; private set; } = false;
 
     public bool split { get; private set; }
 
+    private SwingingEnvironment MirrorLevel;
+
     // Start is called before the first frame update
     void Start()
     {
+        MirrorLevel = PivotObject.GetComponent<SwingingEnvironment>();
+
         split = StartSplit;
         //Ensure light/dark/combined avatars start in the right dimension
         CombinedAvatar.SetActive(!StartSplit);
@@ -37,6 +42,9 @@ public class DimensionController : MonoBehaviour
     private void Split()
     {
         split = true;
+
+        MirrorLevel.Unfold();
+
         LightAvatar.transform.position = CombinedAvatar.transform.position;
         DarkAvatar.transform.position = new Vector3(
             CombinedAvatar.transform.position.x,
@@ -51,6 +59,9 @@ public class DimensionController : MonoBehaviour
     private void UnSplit()
     {
         split = false;
+
+        MirrorLevel.Fold();
+
         CombinedAvatar.transform.position = LightAvatar.transform.position;
         CombinedAvatar.SetActive(true);
         LightAvatar.SetActive(false);
