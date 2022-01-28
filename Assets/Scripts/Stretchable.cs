@@ -16,6 +16,7 @@ public class Stretchable : MonoBehaviour
     void Start()
     {
         boxCollider = gameObject.GetComponent<BoxCollider>();
+        if (boxCollider == null) Debug.LogError(gameObject + "'s Stretchable component must have a reference to the Dimension Controller. Set one in the inspector.");
         originalSize = boxCollider.size;
     }
 

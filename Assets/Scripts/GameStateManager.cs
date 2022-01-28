@@ -12,8 +12,12 @@ using UnityEditor;
 /// </summary>
 public class GameStateManager : MonoBehaviour
 {
-    [SerializeField] KeyCode pauseKey = KeyCode.Escape;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] KeyCode pauseKey = KeyCode.Escape;
+    [SerializeField] int nextLevelIndex;
+    [SerializeField] GameObject[] WinConditions;
+
+    private WinCondition[] Win;
 
     public bool playing { get; private set; }
     public bool gameOver { get; private set; } //This may not be used as failstates aren't currently planned.
@@ -25,27 +29,49 @@ public class GameStateManager : MonoBehaviour
         playing = true;
         gameOver = false;
         levelComplete = false;
+
+        // Cache win condition components
+        Win = new WinCondition[WinConditions.Length];
+        //Debug.Log("Winconditions: " + WinConditions.Length);
+        for(int i = 0; i < WinConditions.Length; i++)
+        {
+            Win[i] = WinConditions[i].GetComponent<WinCondition>();
+            //Debug.Log("Win condition " + i + ": " + WinConditions[i] + ", component registered: " + Win[i]);
+            if (Win[i] == null) Debug.LogError(gameObject + " is missing its WinCondition component.");
+        }
+        //Debug.Log("GameStateManager Started.");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(levelComplete || gameOver)
+        // Set levelComplete, clear if any win condition is not true.
+        levelComplete = true;
+        for(int i = 0; i < WinConditions.Length; i++)
+            if (!Win[i].win) levelComplete = false;
+
+        // Stop the game if the level is finished or failed.
+        if (levelComplete || gameOver)
         {
             playing = false;
+            pauseMenu.SetActive(true);
+            Debug.Log("Level finished.");
         }
 
         if (Input.GetKeyDown(pauseKey) && !gameOver && !levelComplete)
         {
             if (playing) //Toggle pause
             {
+
                 playing = false;
                 pauseMenu.SetActive(true);
+                Debug.Log("Paused.");
             }
             else
             {
                 pauseMenu.SetActive(false);
                 playing = true;
+                Debug.Log("Unpaused");
             }
         }
     }

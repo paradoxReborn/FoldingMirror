@@ -16,9 +16,13 @@ public class MyCharacterController : MonoBehaviour
     [SerializeField] private float JumpHang = 0.02f;
     [SerializeField] private int CoyoteFrames = 2;
     [SerializeField] private bool _3D = true;
+    [SerializeField] private string CharacterName; // To distinguish between the different avatars
+
+    public string CharacterID { get; private set; }
 
     private CharacterController ctrl;
     private GameStateManager GM;
+
     private bool grounded;
     private bool canJump;
     private bool jumping;
@@ -31,6 +35,8 @@ public class MyCharacterController : MonoBehaviour
     {
         GM = GameStateManager.GetComponent<GameStateManager>();
         ctrl = gameObject.GetComponent<CharacterController>();
+        CharacterID = CharacterName;
+
         if (ctrl == null) Debug.LogError("Character missing charactercontroller: " + gameObject.name);
         jumping = false;
     }
