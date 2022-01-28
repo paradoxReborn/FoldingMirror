@@ -66,7 +66,7 @@ public class DimensionController : MonoBehaviour
         _3DViewRotation = Quaternion.Euler(_3DViewAngle);
 
         // Confirm correct avatars enabled/disabled and flag is set
-        ExtendColliderFlag = true;
+        ExtendColliderFlag = false;
         CombinedAvatar.SetActive(true);
         LightAvatar.SetActive(false);
         DarkAvatar.SetActive(false);
@@ -118,6 +118,9 @@ public class DimensionController : MonoBehaviour
             yield return null;
         }
 
+        // Extend Colliders
+        ExtendColliderFlag = true;
+
         // Split Avatars
         LightAvatar.transform.position = CombinedAvatar.transform.position;
         DarkAvatar.transform.position = new Vector3(
@@ -144,6 +147,9 @@ public class DimensionController : MonoBehaviour
         CombinedAvatar.SetActive(true);
         LightAvatar.SetActive(false);
         DarkAvatar.SetActive(false);
+
+        // Retract Colliders
+        ExtendColliderFlag = false;
 
         // Raise Mirror
         while (Quaternion.Angle(Mirror.transform.rotation, Quaternion.Euler(MirrorFoldAngle, Mirror.transform.rotation.y, Mirror.transform.rotation.z)) > 1f)
