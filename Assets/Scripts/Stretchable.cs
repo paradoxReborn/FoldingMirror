@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlippableObstacle : MonoBehaviour
+public class Stretchable : MonoBehaviour
 {
-    [SerializeField] private OldDimensionController DC;
-    [SerializeField] private float ExtrudeFactor = 50f;
+    [SerializeField] private DimensionController Controller;
+    [SerializeField] private float ExtrudeFactor;
 
     private BoxCollider boxCollider;
 
@@ -15,23 +15,14 @@ public class FlippableObstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(DC == null)
-        {
-            DC = GameObject.Find("DimensionController").GetComponent<OldDimensionController>(); //In case someone forgets to assign this.
-        }
         boxCollider = gameObject.GetComponent<BoxCollider>();
         originalSize = boxCollider.size;
-        if (DC.StartSplit)
-        {
-            ExtrudeForm();
-            extruded = true;
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(extruded != DC.split)
+        if(extruded != Controller.ExtendColliderFlag)
         {
             if (extruded)
             {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFlipper : MonoBehaviour
 {
-    [SerializeField] DimensionController DC;
+    [SerializeField] OldDimensionController DC;
     [SerializeField] Vector3 _2DViewPosition;
     [SerializeField] Vector3 _2DViewRotation;
     [SerializeField] Vector3 _3DViewPosition;
