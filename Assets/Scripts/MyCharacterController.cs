@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class MyCharacterController : MonoBehaviour
 {
+    [SerializeField] private GameObject GameStateManager;
     [SerializeField] private float moveSpeed = 0.3f;
     [SerializeField] private float playerGravity = 0.04f;
     [SerializeField] private float groundedRadius = 1.1f;
@@ -17,6 +18,7 @@ public class MyCharacterController : MonoBehaviour
     [SerializeField] private bool _3D = true;
 
     private CharacterController ctrl;
+    private GameStateManager GM;
     private bool grounded;
     private bool canJump;
     private bool jumping;
@@ -27,6 +29,7 @@ public class MyCharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameStateManager.GetComponent<GameStateManager>();
         ctrl = gameObject.GetComponent<CharacterController>();
         if (ctrl == null) Debug.LogError("Character missing charactercontroller: " + gameObject.name);
         jumping = false;
@@ -35,54 +38,60 @@ public class MyCharacterController : MonoBehaviour
     // Read jump key
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canJump)
+        if (GM.playing)
         {
-            Debug.Log("jump!");
-            remJump = JumpStrength;
-            jumping = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            jumping = false;
+            if (Input.GetKeyDown(KeyCode.Space) && canJump)
+            {
+                Debug.Log("jump!");
+                remJump = JumpStrength;
+                jumping = true;
+            }
+            else if (Input.GetKeyUp(KeyCode.Space))
+            {
+                jumping = false;
+            }
         }
     }
 
     // Do physics
     private void FixedUpdate()
     {
-        grounded = Grounded();// only need one cast per physics frame
-
-        //if grounded, reset jump and coyote time. If not, apply gravity acceleration
-        if (grounded)
+        if (GM.playing)
         {
-            canJump = true;
-            remCoyote = CoyoteFrames;
-            Debug.Log("Character grounded");
-            playerVelocity.y = -playerGravity;
+            grounded = Grounded();// only need one cast per physics frame
+
+            //if grounded, reset jump and coyote time. If not, apply gravity acceleration
+            if (grounded)
+            {
+                canJump = true;
+                remCoyote = CoyoteFrames;
+                Debug.Log("Character grounded");
+                playerVelocity.y = -playerGravity;
+            }
+            else if (remCoyote < 1) playerVelocity.y -= playerGravity;
+            else remCoyote--;
+
+            // calculate vertical movement
+            if (jumping)
+            {
+                canJump = false; //ensure we can't start another jump until grounded and button released
+                playerVelocity.y += remJump;
+                remJump = Mathf.Max(remJump -= JumpFalloff, JumpHang);
+                Debug.Log("Jumping");
+            }
+
+            // calculate side movement
+            playerVelocity.x = Input.GetAxis("Horizontal") * moveSpeed;
+
+            //if in 3D, do forward movement
+            if (_3D)
+            {
+                playerVelocity.z = Input.GetAxis("Vertical") * moveSpeed;
+            }
+
+            // do calculated movement
+            ctrl.Move(gameObject.transform.rotation * playerVelocity);
         }
-        else if( remCoyote < 1) playerVelocity.y -= playerGravity;
-        else remCoyote--;
-
-        // calculate vertical movement
-        if (jumping)
-        {
-            canJump = false; //ensure we can't start another jump until grounded and button released
-            playerVelocity.y += remJump;
-            remJump = Mathf.Max(remJump -= JumpFalloff, JumpHang);
-            Debug.Log("Jumping");
-        }
-
-        // calculate side movement
-        playerVelocity.x = Input.GetAxis("Horizontal") * moveSpeed;
-
-        //if in 3D, do forward movement
-        if (_3D)
-        {
-            playerVelocity.z = Input.GetAxis("Vertical") * moveSpeed;
-        }
-
-        // do calculated movement
-        ctrl.Move(gameObject.transform.rotation * playerVelocity);
     }
 
     // Replacement for unreliable or non-working CharacterController collision detection
