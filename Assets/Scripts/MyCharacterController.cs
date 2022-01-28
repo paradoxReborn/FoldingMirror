@@ -60,8 +60,8 @@ public class MyCharacterController : MonoBehaviour
             Debug.Log("Character grounded");
             playerVelocity.y = -playerGravity;
         }
-        else if( CoyoteFrames < 1) playerVelocity.y -= playerGravity;
-        else CoyoteFrames--;
+        else if( remCoyote < 1) playerVelocity.y -= playerGravity;
+        else remCoyote--;
 
         // calculate vertical movement
         if (jumping)
