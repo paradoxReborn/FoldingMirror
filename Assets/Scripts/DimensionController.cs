@@ -70,6 +70,11 @@ public class DimensionController : MonoBehaviour
         CombinedAvatar.SetActive(true);
         LightAvatar.SetActive(false);
         DarkAvatar.SetActive(false);
+
+        // Confirm correct start position of mirror and camera
+        Mirror.transform.rotation = Quaternion.Euler(MirrorFoldAngle, 0 , 0);
+        MainCamera.transform.position = _3DViewPosition;
+        MainCamera.transform.rotation = _3DViewRotation;
     }
 
     // Update is called once per frame
