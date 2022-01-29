@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 100
+  returnToMenuAfter: 10
 --- !u!1 &1329288084
 GameObject:
   m_ObjectHideFlags: 0
