@@ -9,7 +9,12 @@ public class Switch : MonoBehaviour
     [SerializeField] bool startOn = false;
     [SerializeField] bool toggle = false;
     [SerializeField] bool momentary = false;
+    [SerializeField] bool invisibleWhenOn = false;
+
     [SerializeField] bool winCondition = false;
+
+    [SerializeField] bool RequireSpecificAvatar = false;
+    [SerializeField] GameObject SpecificAvatar;
 
     private Renderer thisRenderer;
     private WinCondition myWinCond;
@@ -18,14 +23,16 @@ public class Switch : MonoBehaviour
     void turnOff()
     {
         on = false;
-        thisRenderer.material = OffMaterial;
+        if (invisibleWhenOn) thisRenderer.enabled = true;
+        else thisRenderer.material = OffMaterial;
         if (winCondition) myWinCond.win = false;
     }
 
     void turnOn()
     {
         on = true;
-        thisRenderer.material = OnMaterial;
+        if (invisibleWhenOn) thisRenderer.enabled = false;
+        else thisRenderer.material = OnMaterial;
         if (winCondition) myWinCond.win = true;
     }
 
@@ -47,11 +54,14 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Make sure it's a player character.
+        // Make sure it's a player character. If set for a specific avatar, make sure it's that one.
         if(other.gameObject.GetComponent<MyCharacterController>() != null)
         {
-            if (toggle && on) turnOff();
-            else turnOn();
+            if(!RequireSpecificAvatar || GameObject.ReferenceEquals(other.gameObject, SpecificAvatar))
+            {
+                if (toggle && on) turnOff();
+                else turnOn();
+            }
         }
     }
 
@@ -59,7 +69,10 @@ public class Switch : MonoBehaviour
     {
         if(momentary && other.gameObject.GetComponent<MyCharacterController>() != null)
         {
-            turnOff();
+            if (!RequireSpecificAvatar || GameObject.ReferenceEquals(other.gameObject, SpecificAvatar))
+            {
+                turnOff();
+            }
         }
     }
 }
