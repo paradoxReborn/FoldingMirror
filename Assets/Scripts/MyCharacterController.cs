@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class MyCharacterController : MonoBehaviour
 {
-    [SerializeField] private GameObject GameStateManager;
     [SerializeField] private float moveSpeed = 0.3f;
     [SerializeField] private float playerGravity = 0.04f;
     [SerializeField] private float groundedRadius = 1.1f;
@@ -33,7 +32,7 @@ public class MyCharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GM = GameStateManager.GetComponent<GameStateManager>();
+        GM = GameStateManager.GM;
         ctrl = gameObject.GetComponent<CharacterController>();
         CharacterID = CharacterName;
 
