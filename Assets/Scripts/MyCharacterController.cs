@@ -9,7 +9,7 @@ public class MyCharacterController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 0.3f;
     [SerializeField] private float playerGravity = 0.04f;
-    [SerializeField] private float groundedRadius = 1.1f;
+    [SerializeField] private float groundedRadius = 1.0f;
     [SerializeField] private float JumpStrength = 0.22f;
     [SerializeField] private float JumpFalloff = 0.06f;
     [SerializeField] private float JumpHang = 0.02f;
@@ -17,7 +17,7 @@ public class MyCharacterController : MonoBehaviour
     [SerializeField] private bool _3D = true;
 
     private CharacterController ctrl;
-    private bool grounded;
+    public bool grounded {get; private set;}
     private bool canJump;
     private bool jumping;
     private int remCoyote;
