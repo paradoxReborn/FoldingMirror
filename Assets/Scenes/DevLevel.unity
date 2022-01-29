@@ -1974,6 +1974,7 @@ GameObject:
   - component: {fileID: 2032788023}
   - component: {fileID: 2032788022}
   - component: {fileID: 2032788024}
+  - component: {fileID: 2032788025}
   m_Layer: 0
   m_Name: MusicBox
   m_TagString: Untagged
@@ -2028,21 +2029,37 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -806160914
+      Data2: 1153670242
+      Data3: 1268556180
+      Data4: 870300402
+    Path: event:/Level_1_Music
   Event: 
   PlayEvent: 1
   StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  Params: []
+  Params:
+  - Name: Layer2_3
+    Value: 0
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2032788025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032788021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1001 &2080678089
 PrefabInstance:
   m_ObjectHideFlags: 0
