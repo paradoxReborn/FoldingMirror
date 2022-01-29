@@ -14,6 +14,9 @@ using UnityEngine;
 
 public class DimensionController : MonoBehaviour
 {
+    // Singleton instance
+    public static DimensionController DC { get; private set; }
+
     // Flag for level elements
     public bool ExtendColliderFlag { get; private set; } = false;
 
@@ -53,6 +56,13 @@ public class DimensionController : MonoBehaviour
     private bool thirdDimension = true; //true when we are in the 3D view.
     private bool transition = false; //true while in the middle of a transition between dimensions.
     private bool canFlip = true; //false if any condition prevents switching dimensions.
+
+    // Set/enforce singleton
+    private void Awake()
+    {
+        if (DC != null) Destroy(DC);
+        DC = this;
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Stretchable : MonoBehaviour
 {
-    [SerializeField] private DimensionController Controller;
+    
     [SerializeField] private float ExtrudeFactor;
 
     private BoxCollider boxCollider;
+    private DimensionController Controller;
 
     private Vector3 originalSize;
     private bool extruded;
@@ -18,6 +19,7 @@ public class Stretchable : MonoBehaviour
         boxCollider = gameObject.GetComponent<BoxCollider>();
         if (boxCollider == null) Debug.LogError(gameObject + "'s Stretchable component must have a reference to the Dimension Controller. Set one in the inspector.");
         originalSize = boxCollider.size;
+        Controller = DimensionController.DC;
     }
 
     // Update is called once per frame

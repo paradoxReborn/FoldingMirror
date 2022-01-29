@@ -12,6 +12,9 @@ using UnityEditor;
 /// </summary>
 public class GameStateManager : MonoBehaviour
 {
+    //Singleton Instance
+    public static GameStateManager GM { get; private set; }
+
     [SerializeField] GameObject pauseMenu;
     [SerializeField] KeyCode pauseKey = KeyCode.Escape;
     [SerializeField] int nextLevelIndex;
@@ -22,6 +25,13 @@ public class GameStateManager : MonoBehaviour
     public bool playing { get; private set; }
     public bool gameOver { get; private set; } //This may not be used as failstates aren't currently planned.
     public bool levelComplete { get; private set; }
+
+    // Set/Enforce singleton
+    private void Awake()
+    {
+        if (GM != null) Destroy(GM);
+        GM = this;
+    }
 
     // Start is called before the first frame update
     void Start()
