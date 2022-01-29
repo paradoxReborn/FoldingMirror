@@ -2,10 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 /// <summary>
 /// GameStateManager handles all gamestates and switches between them.
 /// Objects that work only while in a specific state should check GameStateManager's flags.
@@ -17,7 +13,7 @@ public class GameStateManager : MonoBehaviour
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] KeyCode pauseKey = KeyCode.Escape;
-    [SerializeField] int nextLevelIndex;
+    //[SerializeField] int nextLevelIndex;
     [SerializeField] GameObject[] WinConditions;
 
     private WinCondition[] Win;
@@ -55,10 +51,11 @@ public class GameStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Set levelComplete, clear if any win condition is not true.
-        levelComplete = true;
+        // Set levelComplete if all win conditions are true.
+        bool finish = true;
         for(int i = 0; i < WinConditions.Length; i++)
-            if (!Win[i].win) levelComplete = false;
+            if (!Win[i].win) finish = false;
+        levelComplete = finish;
 
         // Stop the game if the level is finished or failed.
         if (levelComplete || gameOver)
@@ -72,7 +69,6 @@ public class GameStateManager : MonoBehaviour
         {
             if (playing) //Toggle pause
             {
-
                 playing = false;
                 pauseMenu.SetActive(true);
                 Debug.Log("Paused.");
@@ -84,23 +80,5 @@ public class GameStateManager : MonoBehaviour
                 Debug.Log("Unpaused");
             }
         }
-    }
-
-    // Restart current level - called by UI
-    public void UIRestartLevel()
-    {
-        string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(currentScene);
-    }
-
-    // Quit game - called by UI
-    public void UIQuitGame()
-    {
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#endif
-#if UNITY_STANDALONE
-        Application.Quit();
-#endif
     }
 }

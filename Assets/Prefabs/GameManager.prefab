@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8467921314748907801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8467921314748907797}
+  - component: {fileID: 8467921314748907802}
+  - component: {fileID: 8467921314748907803}
+  - component: {fileID: 8467921314748907800}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8467921314748907797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467921314748907801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 633.2151, y: 327.6724, z: -2.1782074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8467921314748907802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467921314748907801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b91b64f002d15409e76f02a551cba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  pauseKey: 27
+  WinConditions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &8467921314748907803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467921314748907801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02997c512ccd11b40ba7803da6d7304c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlipKey: 102
+  CombinedAvatar: {fileID: 0}
+  LightAvatar: {fileID: 0}
+  DarkAvatar: {fileID: 0}
+  MainCamera: {fileID: 0}
+  Mirror: {fileID: 0}
+  _2DViewPosition: {x: 0, y: 0, z: -20}
+  _2DViewAngle: {x: 0, y: 0, z: 0}
+  _3DViewPosition: {x: -3, y: 10, z: -10}
+  _3DViewAngle: {x: 30, y: 12, z: 0}
+  CameraMoveSpeed: 30
+  CameraRotateSpeed: 60
+  MirrorUnfoldAngle: 0
+  MirrorFoldAngle: -100
+  MirrorSwingSpeed: 100
+--- !u!114 &8467921314748907800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467921314748907801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e10a6e83144ce2458fb3bf0fae7f924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

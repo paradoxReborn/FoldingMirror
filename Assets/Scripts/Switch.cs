@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A configurable switch trigger that can also act as a win condition.
+/// 
+/// </summary>
 public class Switch : MonoBehaviour
 {
     [SerializeField] Material OnMaterial;
