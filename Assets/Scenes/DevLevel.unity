@@ -2042,7 +2042,7 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: Layer2_3
-    Value: 0
+    Value: 15
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
