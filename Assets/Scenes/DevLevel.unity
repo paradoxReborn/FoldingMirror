@@ -1996,8 +1996,6 @@ MonoBehaviour:
   LoadEvent: 1
   UnloadEvent: 2
   Banks:
-  - Master
-  - Master.strings
   - OrigamiMusic
   CollisionTag: 
   PreloadSamples: 0
