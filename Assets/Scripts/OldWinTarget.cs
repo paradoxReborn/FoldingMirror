@@ -4,7 +4,7 @@ using UnityEngine;
 
 //A pressure plate or button that sets a win condition true if a specific Character touches it.
 //Object must have a WinCondition component.
-public class WinTarget : MonoBehaviour
+public class OldWinTarget : MonoBehaviour
 {
     [SerializeField] private string TargetCharacter;
     [SerializeField] private bool StayTrue;
