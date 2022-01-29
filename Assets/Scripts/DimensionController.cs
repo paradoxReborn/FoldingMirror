@@ -27,7 +27,7 @@ public class DimensionController : MonoBehaviour
     [SerializeField] private GameObject MainCamera; // Camera doesn't need its own script anymore.
     [SerializeField] private GameObject Mirror; // The object that the mirror level is parented to
 
-    // Camera Settings, with good defaults
+    // Camera Settings
     [SerializeField] private Vector3 _2DViewPosition = new Vector3(0, 0, -10);
     [SerializeField] private Vector3 _2DViewAngle = Vector3.zero;
     [SerializeField] private Vector3 _3DViewPosition = new Vector3(-5, 10, -10);
