@@ -177,3 +177,4 @@ Start importing Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset using Gui
  -> (artifact id: '9f7fd9cd8b5dfa0c6783152c339f79de') in 0.028605 seconds 
   Import took 0.032504 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
