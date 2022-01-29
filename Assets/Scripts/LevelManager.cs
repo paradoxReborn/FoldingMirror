@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager LM { get; private set; }
     public int levelProgress { get; private set; } = 0; // Equals the last level the player has finished.
     public int currentLevel { get; private set; } = 0;
+    public bool saveExists { get; private set; }
 
     private string savePath;
 
@@ -21,12 +22,18 @@ public class LevelManager : MonoBehaviour
 
         // Setup
         savePath = Application.persistentDataPath + "/save";
+        Debug.Log("Savegame is located at: " + savePath);
         currentLevel = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-
-        // Load progress
         if (System.IO.File.Exists(savePath))
+        {
+            saveExists = true;
             levelProgress = JsonUtility.FromJson<int>(System.IO.File.ReadAllText(savePath));
-        else levelProgress = 0;
+        }
+        else
+        {
+            saveExists = false;
+            levelProgress = 0;
+        }
     }
 
     // Clear old savegame and load level 1

@@ -8,10 +8,27 @@ using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject ContinueButton;
+
+    private void Start()
+    {
+        if (!LevelManager.LM.saveExists) ContinueButton.SetActive(false);
+    }
+
     public void PlayTest()
     {
         //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         LevelManager.LM.NewGame();
+    }
+
+    public void NewGame()
+    {
+        LevelManager.LM.NewGame();
+    }
+
+    public void ContinueGame()
+    {
+        LevelManager.LM.LoadGame();
     }
 
     public void Exit()
