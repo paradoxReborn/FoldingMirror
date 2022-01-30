@@ -995,17 +995,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5741280318576709516, guid: 58736b75635c8aa4eb01483dd0f07679, type: 3}
   m_PrefabInstance: {fileID: 557513687}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1232101735 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6607844708528815953, guid: 1b6ec55c75e386646a081803386ea92f, type: 3}
-  m_PrefabInstance: {fileID: 6607844709005643064}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1242889180 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8467921314748907801, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
@@ -2210,10 +2199,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6607844709582029035, guid: 1b6ec55c75e386646a081803386ea92f, type: 3}
-      propertyPath: MenuLabel
-      value: 
-      objectReference: {fileID: 1232101735}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b6ec55c75e386646a081803386ea92f, type: 3}
 --- !u!1001 &7532141101108551121
@@ -2412,5 +2397,6 @@ PrefabInstance:
       propertyPath: _3DMusicTransitionInitial
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8496829357563665971, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}

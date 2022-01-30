@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8467921314748907800}
   - component: {fileID: 911787172520027637}
   - component: {fileID: 7648069737424732530}
-  - component: {fileID: 8496829357563665971}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -153,20 +152,3 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &8496829357563665971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8467921314748907801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f4a8820ae393043805b5cf62c26d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextLevelButton: {fileID: 0}
-  RestartLevelButton: {fileID: 0}
-  QuitGameButton: {fileID: 0}
-  ContinueText: {fileID: 0}
-  MenuLabel: {fileID: 0}

@@ -938,3 +938,115 @@ Received Import Request.
 Start importing Assets/Scenes/BlankLevelTemplate.unity using Guid(2300017bab5831243bf595d740fed6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72ff78032c910139630957211356b50a') in 0.003384 seconds 
   Import took 0.007815 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 115.824134 seconds.
+  path: Assets/Scenes/Level2.unity
+  artifactKey: Guid(4d4d22676282dbf4f9b0e4ceeeba8950) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Level2.unity using Guid(4d4d22676282dbf4f9b0e4ceeeba8950) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce6289df542c64daaac7c3b037fa04b5') in 0.004036 seconds 
+  Import took 0.008611 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 928.701977 seconds.
+  path: Assets/Scenes/BlankLevelTemplate.unity
+  artifactKey: Guid(2300017bab5831243bf595d740fed6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/BlankLevelTemplate.unity using Guid(2300017bab5831243bf595d740fed6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35fbeaa0709411f43fd0a3b363c3626d') in 0.003778 seconds 
+  Import took 0.008496 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 81.292502 seconds.
+  path: Assets/Scenes/Menu
+  artifactKey: Guid(569061090b7923148a47b0e24dfd80d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Menu using Guid(569061090b7923148a47b0e24dfd80d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '627ca66d55f35884b592c40a5ce2428e') in 0.009345 seconds 
+  Import took 0.014121 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.124629 seconds.
+  path: Assets/Scenes/Menu/LightingData.asset
+  artifactKey: Guid(9c1d3f74deda58249bb6be297dd064c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Menu/LightingData.asset using Guid(9c1d3f74deda58249bb6be297dd064c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e6b02e078ef492c5f8a9b44c94c1265') in 0.010186 seconds 
+  Import took 0.014401 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005909 seconds.
+  path: Assets/Scenes/Menu/ReflectionProbe-0.exr
+  artifactKey: Guid(5665c28d5cb724d4688698aef30b159d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Menu/ReflectionProbe-0.exr using Guid(5665c28d5cb724d4688698aef30b159d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50c9a24c3b211c58d3d83d9d8bde39ee') in 0.049606 seconds 
+  Import took 0.053593 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.059339 seconds.
+  path: Assets/Scenes/DevLevel/LightingData.asset
+  artifactKey: Guid(7300065092b9d9d4c8bd91f55bd08f1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/DevLevel/LightingData.asset using Guid(7300065092b9d9d4c8bd91f55bd08f1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c8feaba91c4f9d905afbb738c154d0d') in 0.003914 seconds 
+  Import took 0.008129 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/Scenes/DevLevel/Lightmap-0_comp_dir.png
+  artifactKey: Guid(e29056429d474e44585a5003bb006100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/DevLevel/Lightmap-0_comp_dir.png using Guid(e29056429d474e44585a5003bb006100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '275c6244e1ae3b9add62649f2c93bbc6') in 0.034035 seconds 
+  Import took 0.048516 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/Scenes/DevLevel/ReflectionProbe-0.exr
+  artifactKey: Guid(e18ea16a2bd593d4eac64a18780b4c96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/DevLevel/ReflectionProbe-0.exr using Guid(e18ea16a2bd593d4eac64a18780b4c96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09e9b61f14d6e7c5bb21d54cd3659f76') in 0.017041 seconds 
+  Import took 0.020986 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/Scenes/DevLevel/Lightmap-0_comp_light.exr
+  artifactKey: Guid(8c01fda23a54d3a468fabfe9d300a6e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/DevLevel/Lightmap-0_comp_light.exr using Guid(8c01fda23a54d3a468fabfe9d300a6e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72e8b96aa68dc35126ea93fb765cc5a8') in 0.031416 seconds 
+  Import took 0.035349 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000311 seconds.
+  path: Assets/Scenes/DevLevel/Lightmap-1_comp_dir.png
+  artifactKey: Guid(4be7b045e22e4d645baea67ab59b7ef9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/DevLevel/Lightmap-1_comp_dir.png using Guid(4be7b045e22e4d645baea67ab59b7ef9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa1091f07db17939801c65130c10ee4a') in 0.014834 seconds 
+  Import took 0.018896 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000330 seconds.
+  path: Assets/Scenes/DevLevel/Lightmap-1_comp_light.exr
+  artifactKey: Guid(6a0fd4403f36f6441ba4c4ce42e9cce6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/DevLevel/Lightmap-1_comp_light.exr using Guid(6a0fd4403f36f6441ba4c4ce42e9cce6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b4ea0fe7aff0974e5cf08ba4cab637e') in 0.014903 seconds 
+  Import took 0.019352 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 278.840762 seconds.
+  path: Assets/Prefabs/InGameMenu.prefab
+  artifactKey: Guid(1b6ec55c75e386646a081803386ea92f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/InGameMenu.prefab using Guid(1b6ec55c75e386646a081803386ea92f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7543890abcf8514682bcc514eefb413a') in 0.024013 seconds 
+  Import took 0.028618 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.706644 seconds.
+  path: Assets/Scenes/BlankLevelTemplate.unity
+  artifactKey: Guid(2300017bab5831243bf595d740fed6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/BlankLevelTemplate.unity using Guid(2300017bab5831243bf595d740fed6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbfb4daf8c063951d9ebf09fc3658f27') in 0.003485 seconds 
+  Import took 0.026249 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 302.298940 seconds.
+  path: Assets/Scenes/Level2.unity
+  artifactKey: Guid(4d4d22676282dbf4f9b0e4ceeeba8950) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Level2.unity using Guid(4d4d22676282dbf4f9b0e4ceeeba8950) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4da2b45343ee871dc61afae8edd9d37e') in 0.003656 seconds 
+  Import took 0.008348 seconds .
+
