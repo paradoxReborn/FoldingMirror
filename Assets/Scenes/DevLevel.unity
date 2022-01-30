@@ -1974,7 +1974,6 @@ GameObject:
   - component: {fileID: 2032788023}
   - component: {fileID: 2032788022}
   - component: {fileID: 2032788024}
-  - component: {fileID: 2032788025}
   m_Layer: 0
   m_Name: MusicBox
   m_TagString: Untagged
@@ -2046,20 +2045,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &2032788025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032788021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
-  ListenerNumber: -1
 --- !u!1001 &2080678089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2517,8 +2502,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1108159486}
     - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: MusicManager
+      value: 
+      objectReference: {fileID: 2032788021}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
       propertyPath: CombinedAvatar
       value: 
       objectReference: {fileID: 425135136}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: MusicTransitionLength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: _2DMusicTransitionFinal
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: _3DMusicTransitionFinal
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: _2DMusicTransitionInitial
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: _3DMusicTransitionInitial
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
