@@ -6,8 +6,9 @@ using FMODUnity;
 /// <summary>
 /// DimensionController handles the dimension-switching mechanic.
 /// Its design is more procedural than object-oriented, both for readability and as a demonstration
-/// of moderated object-oriented design. Instead of splitting this single mechanic accross multiple
-/// objects and files, its various parts are organized here and carried out in an orderly fashion.
+/// of moderated (rather than dogmatic) object-oriented design. Instead of splitting this single
+/// mechanic accross multiple objects and files, its various parts are organized here and carried 
+/// out in an orderly fashion.
 /// 
 /// The only responsibility left to other scripts is for level elements to extend their colliders
 /// when the ExtendColliderFlag is set, and I may change that as well.
@@ -72,9 +73,6 @@ public class DimensionController : MonoBehaviour
     private bool musicTransition = false;
     private bool canFlip = true; //false if any condition prevents switching dimensions.
 
-    // Object references
-    //private StudioEventEmitter MusicEmitter;
-
     // Set/enforce singleton
     private void Awake()
     {
@@ -85,7 +83,6 @@ public class DimensionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //MusicEmitter = MusicManager.GetComponent<StudioEventEmitter>();
         MusicEmitter.SetParameter("Layer2_3",15);
 
         // Null-check all required objects
