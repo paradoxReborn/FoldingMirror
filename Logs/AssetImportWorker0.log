@@ -421,3 +421,19 @@ Received Import Request.
 Start importing Assets/Scenes/BlankLevelTemplate.unity using Guid(2300017bab5831243bf595d740fed6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b10c4bab766f8faae1bd03fce5e4423c') in 0.009035 seconds 
   Import took 0.020081 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 1281.705476 seconds.
+  path: Assets/Scenes/BlankLevelTemplate.unity
+  artifactKey: Guid(2300017bab5831243bf595d740fed6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/BlankLevelTemplate.unity using Guid(2300017bab5831243bf595d740fed6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39c4ac26b15c2b2ff71e6dc579979ad8') in 0.003664 seconds 
+  Import took 0.008239 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4486.630152 seconds.
+  path: Assets/Scenes/Level2.unity
+  artifactKey: Guid(4d4d22676282dbf4f9b0e4ceeeba8950) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Level2.unity using Guid(4d4d22676282dbf4f9b0e4ceeeba8950) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bb1a58b2c47fefca96d76887fcbf389') in 0.008741 seconds 
+  Import took 0.013285 seconds .
+
