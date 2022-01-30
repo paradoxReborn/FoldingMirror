@@ -906,3 +906,35 @@ Received Import Request.
 Start importing Assets/LightAvatar.prefab using Guid(0ca77753d72ce284ba7409cac73a73fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '407b2dd6d9171d56fcc8c713163868c6') in 0.026103 seconds 
   Import took 0.030703 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 2063.496842 seconds.
+  path: Assets/Prefabs/DiamondSwitch.prefab
+  artifactKey: Guid(4ac0a78f66de5d74bab8b97a4636f9be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DiamondSwitch.prefab using Guid(4ac0a78f66de5d74bab8b97a4636f9be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c811bf88c12d674bcc19c52dc726bfa9') in 0.013114 seconds 
+  Import took 0.017816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 248.457352 seconds.
+  path: Assets/Prefabs/GameManager.prefab
+  artifactKey: Guid(1c0edb33b69135a4290978f9f552aa3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GameManager.prefab using Guid(1c0edb33b69135a4290978f9f552aa3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43099c8d6ff65103ee902b68a960ef55') in 0.014344 seconds 
+  Import took 0.018919 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 41.949914 seconds.
+  path: Assets/Scenes/Menu.unity
+  artifactKey: Guid(c5cecedf74fe7a149957220d5aba5ba0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Menu.unity using Guid(c5cecedf74fe7a149957220d5aba5ba0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59965bd4145fa7de0022df8873f74395') in 0.003646 seconds 
+  Import took 0.007939 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.065457 seconds.
+  path: Assets/Scenes/BlankLevelTemplate.unity
+  artifactKey: Guid(2300017bab5831243bf595d740fed6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/BlankLevelTemplate.unity using Guid(2300017bab5831243bf595d740fed6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72ff78032c910139630957211356b50a') in 0.003384 seconds 
+  Import took 0.007815 seconds .
+
