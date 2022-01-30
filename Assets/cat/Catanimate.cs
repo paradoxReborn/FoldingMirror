@@ -28,12 +28,12 @@ public class Catanimate : MonoBehaviour
     void Update()
     {
         animator.SetBool("walking",false);
-        if (Input.GetKey("left"))
+        if (Input.GetAxis("Horizontal") < -0.05)
         {
             flipcheck = true;
             animator.SetBool("walking",true);
         }
-        else if (Input.GetKey("right"))
+        else if (Input.GetAxis("Horizontal") > 0.05)
         {
             flipcheck = false;
             animator.SetBool("walking",true);
