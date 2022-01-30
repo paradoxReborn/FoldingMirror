@@ -435,6 +435,8 @@ MonoBehaviour:
   - Master
   Banks:
   - OrigamiMusic
+  - TITLE
+  - TITLE 1
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
