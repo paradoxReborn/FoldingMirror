@@ -133,7 +133,7 @@ public class DimensionController : MonoBehaviour
     private bool avatarsProximity(float xDist, float yDist)
     {
         return (Mathf.Abs(LightAvatar.transform.position.x - DarkAvatar.transform.position.x) < xDist) &&
-            (Mathf.Abs(LightAvatar.transform.position.y - DarkAvatar.transform.position.y) < yDist);
+            (Mathf.Abs(LightAvatar.transform.position.y + DarkAvatar.transform.position.y) < yDist); //Same place, opposite side
     }
 
     // Perform transition to 2D over a number of frames.

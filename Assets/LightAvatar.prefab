@@ -287,8 +287,8 @@ MonoBehaviour:
   moveSpeed: 0.3
   playerGravity: 0.04
   groundedRadius: 1.1
-  JumpStrength: 0.22
-  JumpFalloff: 0.06
+  JumpStrength: 0.18
+  JumpFalloff: 0.05
   JumpHang: 0.02
   CoyoteFrames: 2
   _3D: 1
@@ -386,8 +386,8 @@ MonoBehaviour:
   - {fileID: 2670128409262292017}
   - {fileID: 2670128409069991306}
   m_Bounds:
-    m_Center: {x: 0.014813006, y: 0.033519745, z: -0.553}
-    m_Extent: {x: 0.49096417, y: 0.56235397, z: 0}
+    m_Center: {x: 0.014813006, y: 0.033519804, z: -0.553}
+    m_Extent: {x: 0.49096417, y: 0.562354, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &2670128410438182923

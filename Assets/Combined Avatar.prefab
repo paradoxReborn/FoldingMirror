@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 07f3fd5535e3f1f4a8e32e12a93cea79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 07f3fd5535e3f1f4a8e32e12a93cea79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.36
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 07f3fd5535e3f1f4a8e32e12a93cea79, type: 3}
       propertyPath: m_LocalPosition.z
@@ -316,20 +316,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1222516907777058671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3982342862706641450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56bfada20d901134295c9e46a7f13bfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charcontroller: {fileID: 0}
-  rotationspeed: 400
 --- !u!114 &1222516907777058669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,9 +331,23 @@ MonoBehaviour:
   moveSpeed: 0.3
   playerGravity: 0.04
   groundedRadius: 1.1
-  JumpStrength: 0.21
-  JumpFalloff: 0.06
+  JumpStrength: 0.18
+  JumpFalloff: 0.05
   JumpHang: 0.02
   CoyoteFrames: 2
   _3D: 1
   CharacterName: 
+--- !u!114 &1222516907777058671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3982342862706641450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bfada20d901134295c9e46a7f13bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charcontroller: {fileID: 0}
+  rotationspeed: 400
