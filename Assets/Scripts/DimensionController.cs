@@ -47,12 +47,12 @@ public class DimensionController : MonoBehaviour
     [SerializeField] private float MirrorSwingSpeed = 90f;
 
     // Music settings
-    [SerializeField] private string MusicParameterName;
-    [SerializeField] private float MusicTransitionLength;
-    [SerializeField] private float _2DMusicTransitionInitial;
-    [SerializeField] private float _2DMusicTransitionFinal;
-    [SerializeField] private float _3DMusicTransitionInitial;
-    [SerializeField] private float _3DMusicTransitionFinal;
+    [SerializeField] private string MusicParameterName = "Layer2_3";
+    [SerializeField] private float MusicTransitionLength = 2;
+    [SerializeField] private float _2DMusicTransitionInitial = 25;
+    [SerializeField] private float _2DMusicTransitionFinal = 30;
+    [SerializeField] private float _3DMusicTransitionInitial = 10;
+    [SerializeField] private float _3DMusicTransitionFinal = 15;
 
     // Precomputed Camera target Quaternions
     private Quaternion _2DViewRotation;
