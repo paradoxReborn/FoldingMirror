@@ -22,7 +22,7 @@ public class MyCharacterController : MonoBehaviour
     private CharacterController ctrl;
     private GameStateManager GM;
 
-    private bool grounded;
+    public bool grounded {get; private set;}
     private bool canJump;
     private bool jumping;
     private int remCoyote;

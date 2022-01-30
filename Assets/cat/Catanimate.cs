@@ -28,30 +28,17 @@ public class Catanimate : MonoBehaviour
     void Update()
     {
         animator.SetBool("walking",false);
-        if (Input.GetAxis("Horizontal") < -0.05)
+        if (Input.GetAxisRaw("Horizontal") == -1)
         {
             flipcheck = true;
             animator.SetBool("walking",true);
         }
-        else if (Input.GetAxis("Horizontal") > 0.05)
+        else if (Input.GetAxisRaw("Horizontal") == 1)
         {
             flipcheck = false;
             animator.SetBool("walking",true);
         }
-        animator.SetInteger("jumping",0);
-        animator.SetBool("grounded",true);
-        if (charcontroller.grounded == false)
-        {
-            animator.SetBool("grounded",false);
-            if (controller.velocity.y>0)
-            {
-                animator.SetInteger("jumping",1);
-            }
-            else
-            {
-                animator.SetInteger("jumping",-1);
-            }
-        }
+        animator.SetBool("grounded",charcontroller.grounded);
 
         m_spriterender.flipX = false;
         if (flipcheck == true )
