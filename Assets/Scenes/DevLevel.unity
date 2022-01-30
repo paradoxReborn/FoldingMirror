@@ -2510,8 +2510,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 425135136}
     - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: MusicParameterName
+      value: Layer2_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
       propertyPath: MusicTransitionLength
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
       propertyPath: _2DMusicTransitionFinal
