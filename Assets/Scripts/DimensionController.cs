@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 /// <summary>
 /// DimensionController handles the dimension-switching mechanic.
@@ -29,6 +30,7 @@ public class DimensionController : MonoBehaviour
     [SerializeField] private GameObject DarkAvatar;
     [SerializeField] private GameObject MainCamera; // Camera doesn't need its own script anymore.
     [SerializeField] private GameObject Mirror; // The object that the mirror level is parented to
+    [SerializeField] private GameObject MusicManager; // Object containing the music aparatus
 
     // Camera Settings
     [SerializeField] private Vector3 _2DViewPosition = new Vector3(0, 0, -10);
@@ -44,6 +46,14 @@ public class DimensionController : MonoBehaviour
     //[SerializeField] private int MirrorSwingFrames = 60; // Number of FixedUpdates it takes for the mirror to swing
     [SerializeField] private float MirrorSwingSpeed = 90f;
 
+    // Music settings
+    [SerializeField] private string MusicParameterName = "Layer2_3";
+    [SerializeField] private float MusicTransitionLength = 2;
+    [SerializeField] private float _2DMusicTransitionInitial = 25;
+    [SerializeField] private float _2DMusicTransitionFinal = 30;
+    [SerializeField] private float _3DMusicTransitionInitial = 10;
+    [SerializeField] private float _3DMusicTransitionFinal = 15;
+
     // Precomputed Camera target Quaternions
     private Quaternion _2DViewRotation;
     private Quaternion _3DViewRotation;
@@ -54,8 +64,12 @@ public class DimensionController : MonoBehaviour
 
     // Control flags
     private bool thirdDimension = true; //true when we are in the 3D view.
-    private bool transition = false; //true while in the middle of a transition between dimensions.
+    private bool cameraTransition = false; //true while in the middle of a transition between dimensions.
+    private bool musicTransition = false;
     private bool canFlip = true; //false if any condition prevents switching dimensions.
+
+    // Object references
+    private StudioEventEmitter MusicEmitter;
 
     // Set/enforce singleton
     private void Awake()
@@ -67,6 +81,9 @@ public class DimensionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MusicEmitter = MusicManager.GetComponent<StudioEventEmitter>();
+        MusicEmitter.SetParameter("Layer2_3",15);
+
         // Null-check all required objects
         if (CombinedAvatar == null || LightAvatar == null || DarkAvatar == null || MainCamera == null || Mirror == null)
             Debug.LogError("DimensionController is missing one or more object references. Check settings!");
@@ -91,23 +108,31 @@ public class DimensionController : MonoBehaviour
     void Update()
     {
         // Check if we can flip at the moment
-        canFlip = !transition; //for now, we can flip as long as we aren't in the middle of flipping already.
+        canFlip = (!cameraTransition && !musicTransition); //for now, we can flip as long as we aren't in the middle of flipping already.
 
         // Check for control input
         if (Input.GetKeyDown(FlipKey) && canFlip)
         {
             Debug.Log("Beginning dimension flip.");
-            if (thirdDimension) StartCoroutine(Transition2D()); // Switch to 2D
-            else StartCoroutine(Transition3D()); // Switch to 3D
+            if (thirdDimension) // Switch to 2D
+            {
+                StartCoroutine(CameraTransition2D());
+                StartCoroutine(MusicTransition(MusicParameterName, _2DMusicTransitionInitial, _2DMusicTransitionFinal, MusicTransitionLength));
+            }
+            else  // Switch to 3D
+            {
+                StartCoroutine(CameraTransition3D());
+                StartCoroutine(MusicTransition(MusicParameterName,_3DMusicTransitionInitial,_3DMusicTransitionFinal,MusicTransitionLength));
+            }
         }
     }
 
     // Perform transition to 2D over a number of frames.
     // Sets or clears transition and thirdDimension flags.
-    IEnumerator Transition2D()
+    IEnumerator CameraTransition2D()
     {
         // Begin Transition
-        transition = true;
+        cameraTransition = true;
 
         // Swing Camera
         camTargetPos = _2DViewPosition;
@@ -121,6 +146,10 @@ public class DimensionController : MonoBehaviour
             Debug.Log("Moving camera.");
             yield return null;
         }
+
+        //Fix for imprecise ortho view
+        MainCamera.transform.position = camTargetPos;
+        MainCamera.transform.rotation = camTargetRot;
 
         // Lower Mirror
         while (Quaternion.Angle(Mirror.transform.rotation, Quaternion.Euler(MirrorUnfoldAngle,Mirror.transform.rotation.y,Mirror.transform.rotation.z)) > 1f)
@@ -148,14 +177,14 @@ public class DimensionController : MonoBehaviour
 
         // End Transition
         thirdDimension = false;
-        transition = false;
+        cameraTransition = false;
         Debug.Log("Transition to 2D complete.");
     }
 
-    IEnumerator Transition3D()
+    IEnumerator CameraTransition3D()
     {
         // Begin Transition
-        transition = true;
+        cameraTransition = true;
 
         // Combine Avatars
         CombinedAvatar.transform.position = LightAvatar.transform.position;
@@ -189,7 +218,27 @@ public class DimensionController : MonoBehaviour
 
         // End Transition
         thirdDimension = true;
-        transition = false;
+        cameraTransition = false;
         Debug.Log("Transition to 3D complete.");
+    }
+
+    IEnumerator MusicTransition(string ParamName, float InitialValue, float FinalValue, float Length)
+    {
+        //Debug.Log("Music should change...");
+        musicTransition = true;
+        MusicEmitter.SetParameter(ParamName, InitialValue);
+        float CurrentValue = InitialValue;
+        float step = ((_2DMusicTransitionFinal - _2DMusicTransitionInitial) / Length);
+        Debug.Log("Music initial value: " + InitialValue + ", final value:" + FinalValue + ", Difference: " + Mathf.Abs(CurrentValue - FinalValue));
+        while (CurrentValue < FinalValue)
+        {
+            //Debug.Log("Changing music. Param value: " + CurrentValue);
+            CurrentValue += step * Time.deltaTime;
+            MusicEmitter.SetParameter(ParamName, CurrentValue);
+            yield return null;
+        }
+        Debug.Log("Music change done. Param value: " + CurrentValue);
+        MusicEmitter.SetParameter(ParamName, FinalValue); //Doublecheck correct result
+        musicTransition = false;
     }
 }
