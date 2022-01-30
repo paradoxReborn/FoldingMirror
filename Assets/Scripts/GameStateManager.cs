@@ -45,7 +45,11 @@ public class GameStateManager : MonoBehaviour
         for(int i = 0; i < WinConditions.Length; i++)
             //if (!Win[i].win) finish = false;
             if (!WinConditions[i].win) finish = false;
-        levelComplete = finish;
+        if (finish)
+        {
+            levelComplete = true;
+            playing = false;
+        }
 
         // Stop the game if the level is finished or failed.
         if (levelComplete || gameOver)

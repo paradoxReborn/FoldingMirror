@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8467921314748907802}
   - component: {fileID: 8467921314748907803}
   - component: {fileID: 8467921314748907800}
+  - component: {fileID: 911787172520027637}
+  - component: {fileID: 7648069737424732530}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -70,6 +72,7 @@ MonoBehaviour:
   DarkAvatar: {fileID: 0}
   MainCamera: {fileID: 0}
   Mirror: {fileID: 0}
+  MusicEmitter: {fileID: 7648069737424732530}
   _2DViewPosition: {x: 0, y: 0, z: -20}
   _2DViewAngle: {x: 0, y: 0, z: 0}
   _3DViewPosition: {x: -3, y: 10, z: -10}
@@ -79,6 +82,14 @@ MonoBehaviour:
   MirrorUnfoldAngle: 0
   MirrorFoldAngle: -100
   MirrorSwingSpeed: 100
+  MusicParameterName: Layer2_3
+  MusicTransitionLength: 2
+  _2DMusicTransitionInitial: 25
+  _2DMusicTransitionFinal: 30
+  _3DMusicTransitionInitial: 10
+  _3DMusicTransitionFinal: 15
+  maxAvatarMergeDistanceX: 1
+  maxAvatarMergeDistanceY: 3
 --- !u!114 &8467921314748907800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,3 +102,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e10a6e83144ce2458fb3bf0fae7f924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &911787172520027637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467921314748907801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 1
+  UnloadEvent: 2
+  Banks:
+  - Master
+  CollisionTag: 
+  PreloadSamples: 0
+--- !u!114 &7648069737424732530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467921314748907801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -806160914
+      Data2: 1153670242
+      Data3: 1268556180
+      Data4: 870300402
+    Path: event:/Level_1_Music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Layer2_3
+    Value: 15
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
