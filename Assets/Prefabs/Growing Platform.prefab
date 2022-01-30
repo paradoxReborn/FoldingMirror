@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 5652808585788332588}
   expansionSpeed: 10
-  maxScale: 3
+  maxScale: 4
   RequireSpecificAvatar: 0
   SpecificAvatar: {fileID: 0}
 --- !u!114 &5652808585753341672
@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 5652808585788333008}
   - component: {fileID: 5652808585788332591}
   - component: {fileID: 5652808585788332590}
-  - component: {fileID: 5652808585788332589}
   m_Layer: 0
   m_Name: Growing Platform
   m_TagString: Untagged
@@ -196,20 +195,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExtrudeFactor: 300
---- !u!114 &5652808585788332589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5652808585788332588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef3eb741cf687a4381219a6c936e192, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platform: {fileID: 0}
-  expansionSpeed: 100
-  maxScale: 5
-  RequireSpecificAvatar: 0
-  SpecificAvatar: {fileID: 0}
