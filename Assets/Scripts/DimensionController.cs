@@ -54,6 +54,9 @@ public class DimensionController : MonoBehaviour
     [SerializeField] private float _3DMusicTransitionInitial = 10;
     [SerializeField] private float _3DMusicTransitionFinal = 15;
 
+    [SerializeField] private float maxAvatarMergeDistanceX = 1;
+    [SerializeField] private float maxAvatarMergeDistanceY = 3;
+
     // Precomputed Camera target Quaternions
     private Quaternion _2DViewRotation;
     private Quaternion _3DViewRotation;
@@ -107,8 +110,9 @@ public class DimensionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if we can flip at the moment
-        canFlip = (!cameraTransition && !musicTransition); //for now, we can flip as long as we aren't in the middle of flipping already.
+        // Check if we can flip at the moment - no transition in progress, and split avatars close enough
+        canFlip = (!cameraTransition && !musicTransition
+            && (thirdDimension || avatarsProximity(maxAvatarMergeDistanceX,maxAvatarMergeDistanceY)));
 
         // Check for control input
         if (Input.GetKeyDown(FlipKey) && canFlip)
@@ -125,6 +129,13 @@ public class DimensionController : MonoBehaviour
                 StartCoroutine(MusicTransition(MusicParameterName,_3DMusicTransitionInitial,_3DMusicTransitionFinal,MusicTransitionLength));
             }
         }
+    }
+
+    // Return true if avatars are within xDist and yDist of each other, ignoring z axis and diagonal distance.
+    private bool avatarsProximity(float xDist, float yDist)
+    {
+        return (Mathf.Abs(LightAvatar.transform.position.x - DarkAvatar.transform.position.x) < xDist) &&
+            (Mathf.Abs(LightAvatar.transform.position.y - DarkAvatar.transform.position.y) < yDist);
     }
 
     // Perform transition to 2D over a number of frames.
