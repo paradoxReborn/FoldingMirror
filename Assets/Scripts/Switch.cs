@@ -49,7 +49,11 @@ public class Switch : MonoBehaviour
 
     private void Awake()
     {
-        if (winCondition) myWinCond = gameObject.AddComponent(typeof(WinCondition)) as WinCondition;
+        if (winCondition)
+        {
+            myWinCond = gameObject.GetComponent<WinCondition>();
+            if (myWinCond == null) Debug.LogWarning(gameObject + " is missing its win condition component, and is not registered with the GameManager.");
+        }
     }
 
     void Start()

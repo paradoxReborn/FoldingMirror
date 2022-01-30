@@ -30,7 +30,8 @@ public class DimensionController : MonoBehaviour
     [SerializeField] private GameObject DarkAvatar;
     [SerializeField] private GameObject MainCamera; // Camera doesn't need its own script anymore.
     [SerializeField] private GameObject Mirror; // The object that the mirror level is parented to
-    [SerializeField] private GameObject MusicManager; // Object containing the music aparatus
+    //[SerializeField] private GameObject MusicManager; // Object containing the music aparatus
+    [SerializeField] private StudioEventEmitter MusicEmitter;
 
     // Camera Settings
     [SerializeField] private Vector3 _2DViewPosition = new Vector3(0, 0, -10);
@@ -72,7 +73,7 @@ public class DimensionController : MonoBehaviour
     private bool canFlip = true; //false if any condition prevents switching dimensions.
 
     // Object references
-    private StudioEventEmitter MusicEmitter;
+    //private StudioEventEmitter MusicEmitter;
 
     // Set/enforce singleton
     private void Awake()
@@ -84,7 +85,7 @@ public class DimensionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MusicEmitter = MusicManager.GetComponent<StudioEventEmitter>();
+        //MusicEmitter = MusicManager.GetComponent<StudioEventEmitter>();
         MusicEmitter.SetParameter("Layer2_3",15);
 
         // Null-check all required objects

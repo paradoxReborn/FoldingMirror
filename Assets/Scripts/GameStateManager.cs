@@ -14,9 +14,9 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] KeyCode pauseKey = KeyCode.Escape;
     //[SerializeField] int nextLevelIndex;
-    [SerializeField] GameObject[] WinConditions;
+    [SerializeField] WinCondition[] WinConditions;
 
-    private WinCondition[] Win;
+    //private WinCondition[] Win;
 
     public bool playing { get; private set; }
     public bool gameOver { get; private set; } //This may not be used as failstates aren't currently planned.
@@ -35,17 +35,6 @@ public class GameStateManager : MonoBehaviour
         playing = true;
         gameOver = false;
         levelComplete = false;
-
-        // Cache win condition components
-        Win = new WinCondition[WinConditions.Length];
-        //Debug.Log("Winconditions: " + WinConditions.Length);
-        for(int i = 0; i < WinConditions.Length; i++)
-        {
-            Win[i] = WinConditions[i].GetComponent<WinCondition>();
-            //Debug.Log("Win condition " + i + ": " + WinConditions[i] + ", component registered: " + Win[i]);
-            if (Win[i] == null) Debug.LogError(gameObject + " is missing its WinCondition component.");
-        }
-        //Debug.Log("GameStateManager Started.");
     }
 
     // Update is called once per frame
@@ -54,7 +43,8 @@ public class GameStateManager : MonoBehaviour
         // Set levelComplete if all win conditions are true.
         bool finish = true;
         for(int i = 0; i < WinConditions.Length; i++)
-            if (!Win[i].win) finish = false;
+            //if (!Win[i].win) finish = false;
+            if (!WinConditions[i].win) finish = false;
         levelComplete = finish;
 
         // Stop the game if the level is finished or failed.

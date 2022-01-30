@@ -41,26 +41,12 @@ public class MenuHandler : MonoBehaviour
     public void UINextLevel()
     {
         LevelManager.LM.NextLevel();
-        /*
-        // Sanity check for level complete
-        if (GameStateManager.GM.levelComplete)
-        {
-            //TODO load NEXT level instead of reloading this one.
-            Debug.LogWarning("Load Next Level requested. This is not yet implemented.");
-            string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(currentScene);
-        }
-        */
     }
 
     // Restart current level - called by UI
     public void UIRestartLevel()
     {
         LevelManager.LM.RestartLevel();
-        /*
-        string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(currentScene);
-        */
     }
 
     // Quit game - called by UI
