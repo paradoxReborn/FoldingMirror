@@ -8,8 +8,13 @@ using UnityEngine;
 /// </summary>
 public class Switch : MonoBehaviour
 {
-    [SerializeField] Material OnMaterial;
-    [SerializeField] Material OffMaterial;
+    //[SerializeField] Material OnMaterial;
+    //[SerializeField] Material OffMaterial;
+    [SerializeField] private GameObject OnPrefab;
+    [SerializeField] private GameObject OffPrefab;
+    [SerializeField] private Vector3 PrefabOffset;
+    [SerializeField] private Vector3 PrefabRotation;
+
     [SerializeField] bool startOn = false;
     [SerializeField] bool toggle = false;
     [SerializeField] bool momentary = false;
@@ -20,23 +25,25 @@ public class Switch : MonoBehaviour
     [SerializeField] bool RequireSpecificAvatar = false;
     [SerializeField] GameObject SpecificAvatar;
 
-    private Renderer thisRenderer;
+    private Quaternion PrefabQuaternion;
+    private Renderer switchRenderer;
+    private GameObject switchGraphic;
     private WinCondition myWinCond;
     public bool on { get; private set; }
 
     void turnOff()
     {
         on = false;
-        if (invisibleWhenOn) thisRenderer.enabled = true;
-        else thisRenderer.material = OffMaterial;
+        if (invisibleWhenOn) switchRenderer.enabled = true;
+        else ChangeGraphic(OffPrefab);
         if (winCondition) myWinCond.win = false;
     }
 
     void turnOn()
     {
         on = true;
-        if (invisibleWhenOn) thisRenderer.enabled = false;
-        else thisRenderer.material = OnMaterial;
+        if (invisibleWhenOn) switchRenderer.enabled = false;
+        else ChangeGraphic(OnPrefab);
         if (winCondition) myWinCond.win = true;
     }
 
@@ -47,13 +54,27 @@ public class Switch : MonoBehaviour
 
     void Start()
     {
-        thisRenderer = gameObject.GetComponent<Renderer>();
+        PrefabQuaternion = Quaternion.Euler(PrefabRotation);
+
+        if (startOn) ChangeGraphic(OnPrefab);
+        else ChangeGraphic(OffPrefab);
 
         if (startOn) turnOn();
         else turnOff();
 
         // Sanity check
         if (toggle) momentary = false;
+    }
+
+    // Switch to a new graphic if there is one
+    void ChangeGraphic(GameObject newGraphic)
+    {
+        if (switchGraphic != null) Destroy(switchGraphic);
+        if (newGraphic != null)
+        {
+            switchGraphic = Instantiate(newGraphic, gameObject.transform.position + PrefabOffset, PrefabQuaternion, gameObject.transform);
+            switchRenderer = switchGraphic.GetComponent<Renderer>();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
