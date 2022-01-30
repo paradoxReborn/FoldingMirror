@@ -967,6 +967,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5741280318576709516, guid: 58736b75635c8aa4eb01483dd0f07679, type: 3}
   m_PrefabInstance: {fileID: 557513687}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1242889180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8467921314748907801, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+  m_PrefabInstance: {fileID: 8467921314509545869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1242889181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242889180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -806160914
+      Data2: 1153670242
+      Data3: 1268556180
+      Data4: 870300402
+    Path: event:/Level_1_Music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Layer2_3
+    Value: 15
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1242889182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242889180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 1
+  UnloadEvent: 2
+  Banks:
+  - Master
+  CollisionTag: 
+  PreloadSamples: 0
 --- !u!1 &1284288952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,8 +2321,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1041129622}
     - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: MusicManager
+      value: 
+      objectReference: {fileID: 1242889180}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
       propertyPath: CombinedAvatar
       value: 
       objectReference: {fileID: 425135136}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: MusicParameterName
+      value: Layer2_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: MusicTransitionLength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: _2DMusicTransitionFinal
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: _3DMusicTransitionFinal
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: _2DMusicTransitionInitial
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467921314748907803, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
+      propertyPath: _3DMusicTransitionInitial
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c0edb33b69135a4290978f9f552aa3c, type: 3}
