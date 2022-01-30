@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
+/// <summary>
+/// Handles the entire main menu scene.
+/// </summary>
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject ContinueButton;
