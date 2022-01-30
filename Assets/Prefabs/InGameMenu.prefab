@@ -858,6 +858,7 @@ MonoBehaviour:
   RestartLevelButton: {fileID: 6607844708313783857}
   QuitGameButton: {fileID: 6607844708372482626}
   ContinueText: {fileID: 6607844707912505199}
+  MenuLabel: {fileID: 6607844708528815953}
 --- !u!1 &6607844709736965567
 GameObject:
   m_ObjectHideFlags: 0

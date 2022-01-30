@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class LevelManager : MonoBehaviour
     public int levelProgress { get; private set; } = 0; // Equals the last level the player has finished.
     public int currentLevel { get; private set; } = 0;
     public bool saveExists { get; private set; }
+
+    private SaveGame saveGame;
 
     private string savePath;
 
@@ -27,7 +30,9 @@ public class LevelManager : MonoBehaviour
         if (System.IO.File.Exists(savePath))
         {
             saveExists = true;
-            levelProgress = JsonUtility.FromJson<int>(System.IO.File.ReadAllText(savePath));
+            saveGame = JsonUtility.FromJson<SaveGame>(System.IO.File.ReadAllText(savePath));
+            levelProgress = saveGame.LevelCompleted;
+            Debug.Log("Loaded level progress. Completed level: " + levelProgress);
         }
         else
         {
@@ -46,7 +51,7 @@ public class LevelManager : MonoBehaviour
     // Load the next level
     public void LoadGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(levelProgress+1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(levelProgress + 1);
     }
 
     // Continue to the next level
@@ -56,8 +61,10 @@ public class LevelManager : MonoBehaviour
         if (GameStateManager.GM.levelComplete)
         {
             //Save progress and load next scene
-            System.IO.File.WriteAllText(savePath, JsonUtility.ToJson(currentLevel));
-            UnityEngine.SceneManagement.SceneManager.LoadScene(currentLevel+1);
+            saveGame.LevelCompleted = currentLevel;
+            System.IO.File.WriteAllText(savePath, JsonUtility.ToJson(saveGame));
+            Debug.Log("Saved progress. Completed level " + saveGame.LevelCompleted);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(currentLevel + 1);
         }
     }
 
@@ -66,5 +73,10 @@ public class LevelManager : MonoBehaviour
     {
         int currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         UnityEngine.SceneManagement.SceneManager.LoadScene(currentScene);
+    }
+
+    [Serializable]
+    private struct SaveGame{
+        public int LevelCompleted;
     }
 }
