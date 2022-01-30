@@ -98,6 +98,10 @@ public class MyCharacterController : MonoBehaviour
             {
                 playerVelocity.z = Input.GetAxis("Vertical") * moveSpeed;
             }
+            else
+            {
+                playerVelocity.z = 0;
+            }
 
             //Check for upside down controllers
             if (Vector3.Dot(gameObject.transform.up,Vector3.down) > 0)
