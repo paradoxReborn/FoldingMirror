@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Each of the character's avatars contains a MyCharacterController.
-// The doppelganger is placed upside-down, and thus behaves as a mirror image.
+/// <summary>
+/// This is essentially a wrapper around Unity's built-in CharacterController.
+/// Charactercontroller is used because it allows collision detection without Rigidbody physics.
+/// 
+/// Each of the characters in the game contains a MyCharacterController.
+/// The doppelganger is placed upside-down, and thus behaves as a mirror image.
+/// </summary>
 
 public class MyCharacterController : MonoBehaviour
 {
@@ -102,7 +107,7 @@ public class MyCharacterController : MonoBehaviour
     // Replacement for unreliable or non-working CharacterController collision detection
     private bool Grounded()
     {
-        if (Physics.Raycast(transform.position, gameObject.transform.rotation * Vector3.down, groundedRadius)) return true;
+        if (Physics.Raycast(transform.position, gameObject.transform.rotation * Vector3.down, groundedRadius, ~0, QueryTriggerInteraction.Ignore)) return true;
         return false;
     }
 }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -15,11 +17,21 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject RestartLevelButton;
     [SerializeField] private GameObject QuitGameButton;
     [SerializeField] private GameObject ContinueText;
+    [SerializeField] private Text MenuLabel;
 
     private void OnEnable()
     {
-        if (GameStateManager.GM.levelComplete) NextLevelButton.SetActive(true);
-        else NextLevelButton.SetActive(false);
+        if (GameStateManager.GM.levelComplete)
+        {
+            NextLevelButton.SetActive(true);
+            MenuLabel.text = "Level Complete";
+        }
+        else
+        {
+            NextLevelButton.SetActive(false);
+            if (GameStateManager.GM.gameOver) MenuLabel.text = "OOF!";
+            else MenuLabel.text = "Menu";
+        }
 
         if (!GameStateManager.GM.levelComplete && !GameStateManager.GM.gameOver) ContinueText.SetActive(true);
         else ContinueText.SetActive(false);
